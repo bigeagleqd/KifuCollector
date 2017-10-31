@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bigeagle.Portable.BoardGames.Game" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ADAEAEAABAAAAAgAMAABAAQAIAEhAEgBQAAQAAAgAQI=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bigeagle.Portable.BoardGames.Player" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAACAAAIAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bigeagle.Portable.BoardGames.Go.GoGameBase">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAEAEAEBEAAAABAoAEAAggAgBAAAACAgAQEACAACAY=</HashCode>
+      <FileName>GoGameBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bigeagle.Portable.BoardGames.Go.GoPlayer" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GoPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bigeagle.Portable.BoardGames.Stone" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQEAAAABIAABgAAACAAABAgAAAQAAAAAIAAAAAAAYAA=</HashCode>
+      <FileName>Stone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bigeagle.Portable.BoardGames.StoneEventArgs" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Stone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bigeagle.Portable.BoardGames.StoneCancelEventArgs" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Stone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bigeagle.Portable.BoardGames.Go.KiFUGame">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="Bigeagle.Portable.BoardGames.Go.KiFUGame.Label" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>KiFUGame.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ACABAEBFE8CAEIACIoIB4AQAA0AEAAADBEAQAAIQAAI=</HashCode>
+      <FileName>KiFUGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bigeagle.Portable.BoardGames.Go.CommentsMove">
+    <Position X="3.5" Y="4.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Bigeagle.Portable.BoardGames.Go.CommentsMove.MoveAssess" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CommentsMove.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAEAkAEEAIgAAAAAAAAoARAAABAAAAAAECRAIAAAAA=</HashCode>
+      <FileName>CommentsMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Bigeagle.Portable.BoardGames.Go.MatchTime" Collapsed="true">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgEAAAEAAEABAAAAgAIQQAAAAAAAgAA=</HashCode>
+      <FileName>GoGameBase.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Bigeagle.Portable.BoardGames.GameType" Collapsed="true">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAgAAICAIIQAAAAAAEAAAAAAAAAAAAAAAICA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Bigeagle.Portable.BoardGames.StoneEventHandler" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stone.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Bigeagle.Portable.BoardGames.StoneCancelEventHandler" Collapsed="true">
+    <Position X="6" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stone.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bigeagle.Portable.BoardGames\Bigeagle.Portable.BoardGames.csproj" />
+  </ItemGroup>
+
 </Project>
