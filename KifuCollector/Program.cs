@@ -12,7 +12,7 @@ using System.Net;
 using System.Linq;
 using Bigeagle.Portable.BoardGames;
 using Bigeagle.Portable.BoardGames.Go;
-
+using System.Text;
 namespace KifuCollector
 {
 
@@ -22,16 +22,19 @@ namespace KifuCollector
         static void Main(string[] args)
         {
             string sgfFile =  string.Format("{0}/1.sgf", ".");
-            SGFKiFUSerializer serializer = new SGFKiFUSerializer();
+            //SGFKiFUSerializer serializer = new SGFKiFUSerializer();
             try
             {
-                using (StreamReader sr = File.OpenText(sgfFile))
+                SGFKiFUSerializer serializer = new SGFKiFUSerializer();
+                serializer.KiFUEncoding = Encoding.UTF8;
+                using (Stream sr = File.OpenRead(sgfFile))
                 {
-                    string s = sr.ReadToEnd();
-                    KiFUGame game = serializer.DeSerialize(s);
-                    Console.WriteLine(game.GameInfo.Name);
-
-
+                    GoGameInfo gameInfo = serializer.ReadGameInfo(sr);
+                    Console.WriteLine("name:{0}", gameInfo.Name);
+                    Console.WriteLine("black:{0}", gameInfo.BlackPlayer.Name);
+                    Console.WriteLine("white:{0}", gameInfo.WhitePlayer.Name);
+                    Console.WriteLine("result :{0}", gameInfo.Result.ChineseString);
+                    sr.Close();
                 }
             }
             catch(Exception ex)
