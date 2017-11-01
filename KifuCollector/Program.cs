@@ -13,7 +13,12 @@ using System.Linq;
 using Bigeagle.Portable.BoardGames;
 using Bigeagle.Portable.BoardGames.Go;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Net.Http;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace KifuCollector
 {
@@ -23,7 +28,16 @@ namespace KifuCollector
     {
         static void Main(string[] args)
         {
-            string sgfFile =  string.Format("{0}/1.sgf", ".");
+            GetPage();
+
+
+            Console.WriteLine("press any key to exit.");
+            Console.ReadKey();
+        }
+
+        private static void ReadKifu()
+        {
+                        string sgfFile =  string.Format("{0}/1.sgf", ".");
             //SGFKiFUSerializer serializer = new SGFKiFUSerializer();
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             try
@@ -63,9 +77,84 @@ namespace KifuCollector
                 Console.WriteLine("读取{0}出错:{1}", sgfFile, ex);
             }
 
-            Console.WriteLine("press any key to exit.");
-            Console.ReadKey();
         }
+    private static void GetPage()
+    {
+        string firstPageUrl = "http://weiqi.qq.com/qipu/index/p/1.html";
+        string baseUrl = "http://weiqi.qq.com";
+        try
+        {
+            using(WebClient wc = new WebClient())
+            {
+                string s = wc.DownloadString(firstPageUrl);
+                //Console.WriteLine(s);
+
+                //分析
+                Regex regex = new Regex("a class=\"px14\" href=\"(?<url>[^>]+)\"[>]");
+                MatchCollection matches = regex.Matches(s);
+                List<string> urls = new List<string>();
+                string url = string.Empty;
+                foreach(Match match in matches)
+                {
+                    //Console.WriteLine();
+                    url = string.Format("{0}{1}", baseUrl,match.Groups["url"].Value);
+                    #if DEBUG
+                    Console.WriteLine(url);
+                    #endif
+                    urls.Add(url);
+                }
+                Console.WriteLine("共发现{0}页棋谱需要下载。", urls.Count);
+                Parallel.ForEach(urls,
+		() => new WebClient(),
+		(pageUrl, loopstate, index, webclient) =>
+		{
+			string pageString = webclient.DownloadString(pageUrl);
+			Console.WriteLine("{0}:{1}, length:{2}"
+            , Thread.CurrentThread.ManagedThreadId, pageUrl, pageString.Length);
+
+            //抓取棋谱
+            Regex regex1 = new Regex("(;GM[^)]+)");
+            Match match1 = regex1.Match(pageString);
+            if(match1.Success)
+            {
+                string sgf = string.Format("({0})", match1);
+                SGFKiFUSerializer serializer = new SGFKiFUSerializer();
+                KiFUGame game = serializer.DeSerialize(sgf);
+                Console.WriteLine("读取{0}", game.GameInfo.Name);
+                string path = string.Format("./{0}.sgf", game.GameInfo.Name);
+                //Console.WriteLine(sgf);
+                //保存到文件
+                try
+                {
+                    using(StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.Write(sgf);
+                        sw.Flush();
+                        sw.Close();
+                        Console.WriteLine("保存到文件{0}", path);
+                    }
+
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("保存到文件{0}失败：{1}", ex, path);
+                }
+
+                
+            }
+			return webclient;
+		},
+			(webclient) => { });
+
+
+
+            }
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
     }//end class
-    
 }//end namespace
