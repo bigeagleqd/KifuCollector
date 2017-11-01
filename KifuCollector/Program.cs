@@ -51,6 +51,10 @@ namespace KifuCollector
                     Console.WriteLine("black:{0}", game.GameInfo.BlackPlayer.Name);
                     Console.WriteLine("white:{0}", game.GameInfo.WhitePlayer.Name);
                     Console.WriteLine("result :{0}", game.GameInfo.Result.ChineseString);
+                    foreach(CommentsMove move in game.MainGameTreeMoves)
+                    {
+                        Console.WriteLine("{0}: {1}({2},{3})---{4}", move.Step, move.Side, move.X, move.Y, move.Comment);
+                    }
                     sr.Close();
                 }
             }
