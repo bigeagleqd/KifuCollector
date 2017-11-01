@@ -25,10 +25,11 @@ namespace KifuCollector
         {
             string sgfFile =  string.Format("{0}/1.sgf", ".");
             //SGFKiFUSerializer serializer = new SGFKiFUSerializer();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             try
             {
                 SGFKiFUSerializer serializer = new SGFKiFUSerializer();
-                serializer.KiFUEncoding = Encoding.UTF8;
+                serializer.KiFUEncoding = Encoding.GetEncoding("gb2312");
                 using (Stream sr = File.OpenRead(sgfFile))
                 {
                     // GoGameInfo gameInfo = serializer.ReadGameInfo(sr);
