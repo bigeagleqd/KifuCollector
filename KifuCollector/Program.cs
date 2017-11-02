@@ -88,22 +88,68 @@ namespace KifuCollector
             {
                 string s = wc.DownloadString(firstPageUrl);
                 //Console.WriteLine(s);
+                List<string> pageUrls = new List<string>();
+                pageUrls.Add(s);
+
+
+                //分析分页
+                Regex regex = new Regex("<a href='(?<url>[^']+)'\\s>末页");
+                Match match = regex.Match(s);
+                if(match.Success)
+                {
+                    string lastPageUrl = match.Groups["url"].Value;
+                    #if DEBUG
+                    Console.WriteLine("last page url is :{0}", lastPageUrl);
+                    #endif//DEBUG
+
+                    //分析最后一页的页数
+                    regex = new Regex("qipu/index/p/(?<pageNo>\\d+).html");
+                    match = regex.Match(lastPageUrl);
+                    if(match.Success)
+                    {
+                        string pageNoStr = match.Groups["pageNo"].Value;
+                        #if DEBUG
+                        Console.WriteLine("最后一页的页码是：{0}", pageNoStr);
+                        #endif
+                        int pageNo ;
+                        if(int.TryParse(pageNoStr, out pageNo))
+                        {
+                            for(int i = 2; i <= pageNo; i ++)
+                            {
+                                pageUrls.Add(string.Format("http://weiqi.qq.com/qipu/index/p/{0}.html", i));
+
+                            }
+                        }
+                    }
+                }
+                #if DEBUG
+                Console.WriteLine("共有{0}个棋谱目录页。", pageUrls.Count);
+                #endif
+                return ;
+
 
                 //分析
-                Regex regex = new Regex("a class=\"px14\" href=\"(?<url>[^>]+)\"[>]");
+                regex = new Regex("a class=\"px14\" href=\"(?<url>[^>]+)\"[>]");
                 MatchCollection matches = regex.Matches(s);
                 List<string> urls = new List<string>();
                 string url = string.Empty;
-                foreach(Match match in matches)
+                foreach(Match m in matches)
                 {
                     //Console.WriteLine();
-                    url = string.Format("{0}{1}", baseUrl,match.Groups["url"].Value);
+                    url = string.Format("{0}{1}", baseUrl,m.Groups["url"].Value);
                     #if DEBUG
                     Console.WriteLine(url);
                     #endif
                     urls.Add(url);
                 }
                 Console.WriteLine("共发现{0}页棋谱需要下载。", urls.Count);
+
+                //创建目录
+        if(!Directory.Exists("./kifu"))
+        {
+            Directory.CreateDirectory("./kifu");
+        }
+
                 Parallel.ForEach(urls,
 		() => new WebClient(),
 		(pageUrl, loopstate, index, webclient) =>
@@ -121,7 +167,7 @@ namespace KifuCollector
                 SGFKiFUSerializer serializer = new SGFKiFUSerializer();
                 KiFUGame game = serializer.DeSerialize(sgf);
                 Console.WriteLine("读取{0}", game.GameInfo.Name);
-                string path = string.Format("./{0}.sgf", game.GameInfo.Name);
+                string path = string.Format("./kifu/{0}.sgf", game.GameInfo.Name);
                 //Console.WriteLine(sgf);
                 //保存到文件
                 try
