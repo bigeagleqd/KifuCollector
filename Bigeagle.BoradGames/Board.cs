@@ -10,6 +10,7 @@
 //  
 //  History:     2013/1/22 created by bigeagle  
 //               2013/2/12 修改为可移植类库，修改命名空间
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //
 //--------------------------------------------------------------------------
 
@@ -20,7 +21,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace Bigeagle.Portable.BoardGames
+namespace Bigeagle.BoardGames
 {
     /// <summary>
     /// 棋盘类

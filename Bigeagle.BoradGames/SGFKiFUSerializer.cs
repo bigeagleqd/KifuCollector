@@ -12,6 +12,7 @@
 //               2013/2/17 添加棋谱编码属性
 //               2012/2/20 修正反序列化时如果根节点直接跟子游戏树
 //                         会被丢失的错误。
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //--------------------------------------------------------------------------
 
 using System;
@@ -23,7 +24,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace Bigeagle.Portable.BoardGames.Go
+namespace Bigeagle.BoardGames.Go
 {
     /// <summary>
     /// SGF格式棋谱游戏序列化类

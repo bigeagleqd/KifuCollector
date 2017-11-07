@@ -9,6 +9,7 @@
 //  Description: 棋块类，一组相邻的同方棋子集合，用于计算死活/数目等
 //  
 //  History:     2013/1/22 created by bigeagle  
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //
 //--------------------------------------------------------------------------
 
@@ -18,7 +19,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
-namespace Bigeagle.Portable.BoardGames
+namespace Bigeagle.BoardGames
 {
     /// <summary>
     /// 块

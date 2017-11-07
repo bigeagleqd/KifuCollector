@@ -14,6 +14,7 @@
 //                         封装
 //               2013/2/12 修改为可移植类库，修改命名空间
 //               2013/3/4  修改DropStone和DoDropStone方法的返回值为落子后的提子集合
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //--------------------------------------------------------------------------
 
 using System;
@@ -22,7 +23,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace Bigeagle.Portable.BoardGames
+namespace Bigeagle.BoardGames
 {
     /// <summary>
     /// 棋局类

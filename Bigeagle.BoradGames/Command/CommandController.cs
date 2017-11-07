@@ -9,6 +9,7 @@
 //  Description: 命令控制器类，用于棋局的撤销重做等功能
 //  
 //  History:     2013/3/5 created by bigeagle  
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //
 //--------------------------------------------------------------------------
 
@@ -17,7 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Bigeagle.Portable.BoardGames.Command
+namespace Bigeagle.BoardGames.Command
 {
     /// <summary>
     /// 命令控制器类，实现撤销/重做功能

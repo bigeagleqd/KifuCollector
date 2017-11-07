@@ -13,12 +13,13 @@
 //  
 //  History:     2013/1/30 created by bigeagle  
 //               2013/2/15 转移到可移植类库
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //--------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-namespace Bigeagle.Portable.BoardGames.Go
+namespace Bigeagle.BoardGames.Go
 {
     /// <summary>
     /// 带有讲解的棋子

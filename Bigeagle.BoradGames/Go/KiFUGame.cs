@@ -9,17 +9,18 @@
 //  Description: 打谱对局类，实现已有对局的保存及载入，打谱。
 //  
 //  History:     2013/1/24 created by bigeagle  
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //
 //--------------------------------------------------------------------------
 
-using Bigeagle.Portable.BoardGames.Command;
+using Bigeagle.BoardGames.Command;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Bigeagle.Portable.BoardGames.Go
+namespace Bigeagle.BoardGames.Go
 {
     /// <summary>
     /// 打谱类

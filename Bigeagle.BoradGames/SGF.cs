@@ -13,6 +13,7 @@
 //               2013/2/5  添加Node类的NextNode和PrevNode属性用于寻址
 //               2013/2/12 修改为可移植类库，修改命名空间
 //               2013/2/15 修正解析中\]转义及括号的错误。
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //--------------------------------------------------------------------------
 
 using System;
@@ -25,7 +26,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 
 
-namespace Bigeagle.Portable.BoardGames
+namespace Bigeagle.BoardGames
 {
     /// <summary>
     /// SGF类

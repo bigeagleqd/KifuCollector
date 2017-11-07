@@ -13,6 +13,7 @@
 //               2013/2/17 把棋局信息合并为GoGameInfo类，以便读取棋谱时可以只读棋局信息
 //               2013/2/25 修正提子后未把相应棋盘位置置为空的bug。
 //               2013/3/4  修改DropStone和DoDropStone方法的返回值为落子后的提子集合
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //
 //--------------------------------------------------------------------------
 
@@ -20,7 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-namespace Bigeagle.Portable.BoardGames.Go
+namespace Bigeagle.BoardGames.Go
 {
 
     /// <summary>

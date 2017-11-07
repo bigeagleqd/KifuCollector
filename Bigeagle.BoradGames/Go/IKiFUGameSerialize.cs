@@ -9,6 +9,7 @@
 //  Description: 棋谱游戏序列化接口
 //  
 //  History:     2013/2/15 created by bigeagle  
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //
 //--------------------------------------------------------------------------
 
@@ -17,7 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Bigeagle.Portable.BoardGames.Go
+namespace Bigeagle.BoardGames.Go
 {
     /// <summary>
     /// 棋谱游戏序列化接口

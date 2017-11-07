@@ -9,16 +9,17 @@
 //  Description: 走子命令，用于走棋的撤销重做等功能
 //  
 //  History:     2013/3/4 created by bigeagle  
+//               2017/11/7 修改为.net standard类库，修改命名空间
 //
 //--------------------------------------------------------------------------
 
-using Bigeagle.Portable.BoardGames.Command;
+using Bigeagle.BoardGames.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Bigeagle.Portable.BoardGames.Go
+namespace Bigeagle.BoardGames.Go
 {
     /// <summary>
     /// 走子命令
